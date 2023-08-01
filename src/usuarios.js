@@ -1,26 +1,17 @@
 export const usuarios = [
   {
     nome: "João",
-    idade: 50,
     email: "joao@gmail.com",
-    endereco: "Rua Voluntários da Pátria",
-    cidade: "Rosário do sul",
-    estado: "Rio Grande do Sul",
+    senha: 12345,
   },
   {
     nome: "Daphne",
-    idade: 18,
     email: "daphne@gmail.com",
-    endereco: "Rua Piauí",
-    cidade: "Porto Alegre",
-    estado: "Rio Grande do Sul",
+    senha: "teste123",
   },
   {
     nome: "Paulo",
-    idade: 30,
     email: "paulo@gmail.com",
-    endereco: "Rua Piauí",
-    cidade: "Porto Alegre",
-    estado: "Rio Grande do Sul",
+    senha: "usario456",
   },
 ];
