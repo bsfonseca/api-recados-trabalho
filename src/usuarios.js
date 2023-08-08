@@ -4,22 +4,38 @@ export const usuarios = [
     nome: "João",
     email: "joao@gmail.com",
     senha: 12345,
-    recados: ["Descontos para compras acima de 100 reais"],
+    recados: [
+      {
+        id: 1,
+        titulo: "Passear com a daphne",
+        descricao: "Nao esquecer de passear com a daphne hoje",
+      },
+      {
+        id: 2,
+        titulo: "teste",
+        descricao: "teste da descricao do recado 2",
+      },
+    ],
   },
   {
     id: 2,
     nome: "Daphne",
     email: "daphne@gmail.com",
     senha: "teste123",
-    recados: ["Retire seu brinde até dia 30/07/2023"],
+    recados: [
+      {
+        id: 3,
+        titulo: "Comer",
+        descricao: "Vou comer comidinha hoje",
+      },
+    ],
   },
   {
     id: 3,
-
     nome: "Paulo",
     email: "paulo@gmail.com",
     senha: "usuario456",
-    recados: ["Frete grátis em toda loja"],
+    recados: [],
   },
 ];
 

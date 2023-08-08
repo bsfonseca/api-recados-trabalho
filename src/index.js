@@ -1,8 +1,11 @@
 import express from "express";
+import cors from "cors";
+
 import { usuarios, criarUsuario } from "./usuarios.js";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 // Usuários
 app.get("/usuarios", (req, res) => {
@@ -96,10 +99,13 @@ app.post("/login", (req, res) => {
   });
 });
 
+// CRUD Recados
+// Get - Listar os recados de um usuário
 app.get("/usuarios/:id/recados", (req, res) => {
   const { id } = req.params;
 
-  const user = usuarios.find((user) => user.id == id);
+  const user = usuarios.find((item) => item.id == id);
+
   // se user nao existe, retorna erro 404
   if (user == undefined) {
     return res.status(404).send({
@@ -107,13 +113,48 @@ app.get("/usuarios/:id/recados", (req, res) => {
       mensagem: "Recado não encontrado para o usuário",
     });
   }
-  // retorna sucesso, pega os recados dentro de user.recados
+
+  // retorna sucesso
   res.status(200).send({
     ok: true,
     mensagem: "Recado retornado com sucesso",
     dado: user.recados,
   });
 });
+
+// Post - Criar um recado para um usuario
+app.post("/usuarios/:id/recados", (req, res) => {
+  const { id } = req.params;
+  const { titulo, descricao } = req.body;
+
+  const user = usuarios.find((user) => user.id == id);
+
+  if (user == undefined) {
+    return res.status(404).send({
+      ok: false,
+      mensagem: "Usuário não existe",
+    });
+  }
+
+  res.status(201).send({
+    ok: true,
+    mensagem: "Adicionado novo recado",
+  });
+});
+
+// Put - Atualizar
+app.put("/usuarios/:id/recados", (req, res) => {
+  const { id } = req.params;
+  const recAtual = usuarios.find((recAtual) => recAtual.recados == recados);
+  if (recAtual === -1) {
+    return res.status(200).send({
+      ok: true,
+      mensagem: "Recado atualizado com sucesso",
+    });
+  }
+});
+
+// Delete
 
 app.listen(3000, () => {
   console.log("Api rodando");
