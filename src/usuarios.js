@@ -47,3 +47,10 @@ export function criarUsuario(usuario) {
 
   usuarios.push(usuario);
 }
+
+export function criarRecado(usuario, recado) {
+  recado.id = contador;
+  contador++;
+
+  usuario.recados.push(recado);
+}

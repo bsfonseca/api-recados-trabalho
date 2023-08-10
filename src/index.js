@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-import { usuarios, criarUsuario } from "./usuarios.js";
+import { usuarios, criarUsuario, criarRecado } from "./usuarios.js";
 
 const app = express();
 app.use(express.json());
@@ -127,7 +127,21 @@ app.post("/usuarios/:id/recados", (req, res) => {
   const { id } = req.params;
   const { titulo, descricao } = req.body;
 
-  const user = usuarios.find((user) => user.id == id);
+  if (!titulo) {
+    return res.status(400).send({
+      ok: false,
+      mensagem: "Titulo nao informado",
+    });
+  }
+
+  if (!descricao) {
+    return res.status(400).send({
+      ok: false,
+      mensagem: "Titulo nao informado",
+    });
+  }
+
+  const user = usuarios.find((item) => item.id == id);
 
   if (user == undefined) {
     return res.status(404).send({
@@ -135,6 +149,11 @@ app.post("/usuarios/:id/recados", (req, res) => {
       mensagem: "Usuário não existe",
     });
   }
+
+  criarRecado(user, {
+    titulo,
+    descricao,
+  });
 
   res.status(201).send({
     ok: true,
