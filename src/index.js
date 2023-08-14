@@ -162,6 +162,7 @@ app.post("/usuarios/:id/recados", (req, res) => {
 });
 
 // Put - Atualizar
+// falta terminar...
 app.put("/usuarios/:id/recados", (req, res) => {
   const { id } = req.params;
   const recAtual = usuarios.find((recAtual) => recAtual.recados == recados);
@@ -174,6 +175,7 @@ app.put("/usuarios/:id/recados", (req, res) => {
 });
 
 // Delete
+// falta terminar...
 
 app.listen(3000, () => {
   console.log("Api rodando");
