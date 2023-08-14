@@ -37,6 +37,48 @@ export const usuarios = [
     senha: "usuario456",
     recados: [],
   },
+  {
+    id: 4,
+    nome: "Maria",
+    email: "paulo@gmail.com",
+    senha: "usuario456",
+    recados: [],
+  },
+  {
+    id: 5,
+    nome: "João",
+    email: "paulo@gmail.com",
+    senha: "usuario456",
+    recados: [],
+  },
+  {
+    id: 6,
+    nome: "Claudinha",
+    email: "paulo@gmail.com",
+    senha: "usuario456",
+    recados: [],
+  },
+  {
+    id: 7,
+    nome: "Terezinha",
+    email: "paulo@gmail.com",
+    senha: "usuario456",
+    recados: [],
+  },
+  {
+    id: 8,
+    nome: "Renata",
+    email: "paulo@gmail.com",
+    senha: "usuario456",
+    recados: [],
+  },
+  {
+    id: 9,
+    nome: "Candidato",
+    email: "paulo@gmail.com",
+    senha: "usuario456",
+    recados: [],
+  },
 ];
 
 let contador = usuarios.length + 1;

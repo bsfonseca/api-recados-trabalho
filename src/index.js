@@ -7,12 +7,27 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Usuários
+// Listagem de usuários
+// (com paginação)
 app.get("/usuarios", (req, res) => {
+  const usuariosPorPagina = 5;
+  const pagina = req.query.page;
+
+  // usuarios [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+  // pagina 1 -> 0..4
+  // pagina 2 -> 5..9
+  // pagina 3 -> 10..14
+  // pagina 4 -> 15..19
+
+  const posInicial = usuariosPorPagina * (pagina - 1);
+  const posFinal = usuariosPorPagina * pagina - 1;
+
+  const usuariosPaginados = usuarios.slice(posInicial, posFinal + 1);
+
   res.status(200).send({
     ok: true,
     mensagem: "A lista foi obtida com sucesso",
-    dados: usuarios,
+    dados: usuariosPaginados,
   });
 });
 
